@@ -4,35 +4,38 @@
 
 #include "iter.hpp"
 
-void printInt(int& i)
+namespace
 {
-  std::cout << i << ' ';
-}
-
-void increment(int& i)
-{
-  ++i;
-}
-
-template <typename T>
-void printT(T& t)
-{
-  std::cout << t << ' ';
-}
-
-template <typename T>
-void incrementT(T& t)
-{
-  ++t;
-}
-
-void printToUpper(std::string& s)
-{
-  for (std::size_t i = 0; i < s.size(); ++i)
+  void printInt(int& i)
   {
-    std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(s[i])));
+    std::cout << i << ' ';
   }
-  std::cout << ' ';
+
+  void increment(int& i)
+  {
+    ++i;
+  }
+
+  template <typename T>
+  void printT(T& t)
+  {
+    std::cout << t << ' ';
+  }
+
+  template <typename T>
+  void incrementT(T& t)
+  {
+    ++t;
+  }
+
+  void printToUpper(std::string& s)
+  {
+    for (std::size_t i = 0; i < s.size(); ++i)
+    {
+      std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(s[i])));
+    }
+    std::cout << ' ';
+  }
 }
 
 int main()

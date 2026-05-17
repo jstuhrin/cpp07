@@ -37,11 +37,11 @@ int main()
   // testing min and max
   assert(min(one, two) == 1);
   assert(min(one, one) == 1);
-  assert(min(one, two) == 1);
+  assert(min(two, one) == 1);
 
   assert(max(one, two) == 2);
   assert(max(two, two) == 2);
-  assert(max(one, two) == 2);
+  assert(max(two, one) == 2);
 
   assert(min(a, b) == 'a');
   assert(min(a, a) == 'a');

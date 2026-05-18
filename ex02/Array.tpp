@@ -37,9 +37,9 @@ Array<T>& Array<T>::operator=(const Array<T>& other)
   {
     return *this;
   }
-  arr_ = new T[other.n_];
   delete[] arr_;
   n_ = other.n_;
+  arr_ = new T[n_];
   for (unsigned int i = 0; i < n_; ++i)
   {
     arr_[i] = other.arr_[i];
@@ -52,7 +52,7 @@ T& Array<T>::operator[](unsigned int i)
 {
   if (i >= n_)
   {
-    throw std::out_of_range("Array indes out of range");
+    throw std::out_of_range("Array index out of range");
   }
   return arr_[i];
 }
@@ -62,7 +62,7 @@ const T& Array<T>::operator[](unsigned int i) const
 {
   if (i >= n_)
   {
-    throw std::out_of_range("Array indes out of range");
+    throw std::out_of_range("Array index out of range");
   }
   return arr_[i];
 }

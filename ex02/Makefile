@@ -6,7 +6,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-%.o: %.cpp
+%.o: %.cpp Array.hpp Array.tpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

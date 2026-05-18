@@ -2,23 +2,22 @@
 #include <stdexcept>
 
 template <typename T>
-Array<T>::Array() : n_(0)
-{
-  arr_ = new T[0];
-}
+Array<T>::Array()
+  : n_(0)
+  , arr_(new T[0])
+{}
 
 template <typename T>
 Array<T>::Array(unsigned int n)
   : n_(n)
-{
-  arr_ = new T[n];
-}
+  , arr_(new T[n])
+{}
 
 template <typename T>
 Array<T>::Array(const Array<T>& other)
   : n_(other.n_)
+  , arr_(new T[n_])
 {
-  arr_ = new T[n_];
   for (unsigned int i = 0; i < n_; ++i)
   {
     arr_[i] = other.arr_[i];

@@ -20,8 +20,8 @@ class Array
     unsigned int size() const;
 
   private:
-    T* arr_;
     unsigned int n_;
+    T* arr_;
 };
 
 #include "Array.tpp"

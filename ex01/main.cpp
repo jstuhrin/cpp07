@@ -11,7 +11,7 @@ namespace
     std::cout << i << ' ';
   }
 
-  void increment(int& i)
+  void incrementInt(int& i)
   {
     ++i;
   }
@@ -28,13 +28,12 @@ namespace
     ++t;
   }
 
-  void printToUpper(std::string& s)
+  void toUpper(std::string& s)
   {
     for (std::size_t i = 0; i < s.size(); ++i)
     {
-      std::cout << static_cast<char>(std::toupper(static_cast<unsigned char>(s[i])));
+      s[i] = static_cast<char>(std::toupper(static_cast<unsigned char>(s[i])));
     }
-    std::cout << ' ';
   }
 }
 
@@ -47,7 +46,7 @@ int main()
 
     std::cout << '\n';
 
-    iter(arr, 6, &increment);
+    iter(arr, 6, &incrementInt);
 
     iter(arr, 6, &printInt);
 
@@ -87,7 +86,9 @@ int main()
 
     std::cout << '\n';
 
-    iter(strArr, 3, &printToUpper);
+    iter(strArr, 3, &toUpper);
+
+    iter(strArr, 3, &printT);
 
     std::cout << '\n';
   }

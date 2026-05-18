@@ -28,11 +28,11 @@ namespace
     ++t;
   }
 
-  void toUpper(std::string& s)
+  void incrementString(std::string& s)
   {
     for (std::size_t i = 0; i < s.size(); ++i)
     {
-      s[i] = static_cast<char>(std::toupper(static_cast<unsigned char>(s[i])));
+      incrementT(s[i]);
     }
   }
 }
@@ -86,7 +86,7 @@ int main()
 
     std::cout << '\n';
 
-    iter(strArr, 3, &toUpper);
+    iter(strArr, 3, &incrementString);
 
     iter(strArr, 3, &printT);
 

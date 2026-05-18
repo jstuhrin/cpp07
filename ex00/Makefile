@@ -8,7 +8,7 @@ SRCS = main.cpp
 
 OBJS = main.o
 
-%.o: %.cpp
+%.o: %.cpp whatever.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 $(NAME): $(OBJS)

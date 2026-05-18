@@ -4,7 +4,7 @@
 template <typename T>
 Array<T>::Array()
   : n_(0)
-  , arr_(new T[0])
+  , arr_(NULL)
 {}
 
 template <typename T>

@@ -44,7 +44,7 @@ int main()
     intArr[100] = 100;
     assert(false);
   }
-  catch (std::out_of_range e)
+  catch (const std::out_of_range& e)
   {
 
   }

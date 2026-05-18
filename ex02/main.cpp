@@ -6,11 +6,21 @@
 
 int main()
 {
-  // testing default constructor and size() method
+  // test: default constructor and size() method
   Array<char> charArr;
   assert(charArr.size() == 0);
 
-  // testing parameterized constructor and [] operator
+  // test: copy constructor size 0
+  Array<char> charArrCopy(charArr);
+  assert(charArrCopy.size() == 1);
+
+  // test: copy assignment operator size 0
+  Array<char> charArr1(10);
+  assert(charArr1.size() == 10);
+  charArr1 = charArr;
+  assert(charArr1.size() == 0);
+
+  // test: parameterized constructor and [] operator
   Array<int> intArr(10);
   assert(intArr.size() == 10);
   for (int i = 0; i < 10; ++i)
@@ -22,7 +32,7 @@ int main()
     assert(intArr[i] == i);
   }
 
-  // testing copy constructor
+  // test: copy constructor
   Array<int> copy(intArr);
   assert(copy.size() == 10);
   for (int i = 0; i < 10; ++i)
@@ -38,7 +48,7 @@ int main()
     assert(copy[i] != intArr[i]);
   }
 
-  // testing exception for access out of range
+  // test: exception for access out of range
   try
   {
     intArr[100] = 100;
@@ -49,7 +59,7 @@ int main()
 
   }
 
-  // testing copy assignment operator
+  // test: copy assignment operator
   Array<std::string> strArr(10);
   assert(strArr.size() == 10);
 
@@ -80,7 +90,7 @@ int main()
     assert(strArrCopy[i] == "copy");
   }
 
-  // testing const overload of [] operator
+  // test: const overload of [] operator
   const std::string s = strArrCopy[5];
 
   assert(s == "copy");

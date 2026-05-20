@@ -12,7 +12,7 @@ int main()
 
   // test: copy constructor size 0
   Array<char> charArrCopy(charArr);
-  assert(charArrCopy.size() == 1);
+  assert(charArrCopy.size() == 0);
 
   // test: copy assignment operator size 0
   Array<char> charArr1(10);

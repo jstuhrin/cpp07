@@ -37,6 +37,32 @@ namespace
   }
 }
 
+namespace evalSheet
+{
+  class Awesome
+  {
+    public:
+      Awesome() : _n(42) { return; }
+      int get() const { return _n; }
+
+    private:
+      int _n;
+  };
+
+  std::ostream& operator<<(std::ostream& o, Awesome const& rhs)
+  {
+    o << rhs.get();
+    return o;
+  }
+
+  template <typename T>
+  void print(const T& x)
+  {
+    std::cout << x << std::endl;
+    return;
+  }
+}
+
 int main()
 {
   {
@@ -111,6 +137,14 @@ int main()
     iter(intArr, 5, &printT<const int>);
 
     std::cout << '\n';
+  }
+
+  {
+    int tab[] = {0, 1, 2, 3, 4};
+    evalSheet::Awesome tab2[5];
+
+    iter(tab, 5, evalSheet::print<int>);
+    iter(tab2, 5, evalSheet::print<evalSheet::Awesome>);
   }
 
   return 0;

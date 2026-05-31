@@ -101,5 +101,17 @@ int main()
     std::cout << '\n';
   }
 
+  {
+    const int intArr[] = {0,1,2,3,4};
+
+    iter(intArr, 5, &printInt);
+
+    std::cout << '\n';
+
+    iter(intArr, 5, &printT<const int>);
+
+    std::cout << '\n';
+  }
+
   return 0;
 }

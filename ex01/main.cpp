@@ -52,9 +52,9 @@ int main()
 
     std::cout << '\n';
 
-    iter(arr, 6, static_cast<void (*)(int&)>(&incrementT)); // explicitly instantiate the function pointer, otherwise the compiler does not know which overload to choose
+    iter(arr, 6, &incrementT<int>);
 
-    iter(arr, 6, static_cast<void (*)(const int&)>(&printT));
+    iter(arr, 6, &printT<int>);
 
     std::cout << '\n';
   }
@@ -62,19 +62,19 @@ int main()
   {
     char array[] = {'a','b','c','d','e','f'};
 
-    iter(array, 6, static_cast<void (*)(const char&)>(&printT));
+    iter(array, 6, &printT<char>);
 
     std::cout << '\n';
 
-    iter(array, 6, static_cast<void (*)(char&)>(&incrementT));
+    iter(array, 6, &incrementT<char>);
 
-    iter(array, 6, static_cast<void (*)(const char&)>(&printT));
+    iter(array, 6, &printT<char>);
 
     std::cout << '\n';
 
-    iter(array, 6, static_cast<void (*)(char&)>(&incrementT));
+    iter(array, 6, &incrementT<char>);
 
-    iter(array, 6, static_cast<void (*)(const char&)>(&printT));
+    iter(array, 6, &printT<char>);
 
     std::cout << '\n';
   }
@@ -82,13 +82,13 @@ int main()
   {
     std::string strArr[] = {"first", "second", "third"};
 
-    iter(strArr, 3, static_cast<void (*)(const std::string&)>(&printT));
+    iter(strArr, 3, &printT<std::string>);
 
     std::cout << '\n';
 
     iter(strArr, 3, &incrementString);
 
-    iter(strArr, 3, static_cast<void (*)(const std::string&)>(&printT));
+    iter(strArr, 3, &printT<std::string>);
 
     std::cout << '\n';
   }
@@ -96,7 +96,7 @@ int main()
   {
     const double doubleArr[] = {0.0, 1.0, 2.1, 3.2, 4.3};
 
-    iter(doubleArr, 5, static_cast<void (*)(const double&)>(&printT));
+    iter(doubleArr, 5, &printT<const double>);
 
     std::cout << '\n';
   }
